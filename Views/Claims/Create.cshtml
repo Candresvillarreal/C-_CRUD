@@ -1,0 +1,47 @@
+﻿@model NetAssessment.Models.Claim
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1 class="text-center fw-bolder text-decoration-underline">Create</h1>
+
+<h4 class="mt-4 text-center">Claim</h4>
+<hr />
+<div class="row justify-content-center">
+    <div class="col-md-6 flex-column">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group mt-4">
+                <label asp-for="Description" class="control-label fw-bold"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-4">
+                <label asp-for="Status" class="control-label fw-bold"></label>
+                <input asp-for="Status" class="form-control" />
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-4">
+                <label asp-for="Date" class="control-label fw-bold"></label>
+                <input asp-for="Date" class="form-control" />
+                <span asp-validation-for="Date" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-4">
+                <label asp-for="VehicleId" class="control-label fw-bold"></label>
+                <select asp-for="VehicleId" class ="form-control" asp-items="ViewBag.VehicleId"></select>
+            </div>
+            <div class="form-group mt-4 flex-column text-center">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="mt-4 flex-column text-center">
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

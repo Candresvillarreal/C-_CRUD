@@ -1,0 +1,80 @@
+﻿@model IEnumerable<NetAssessment.Models.Vehicle>
+
+@{
+    ViewData["Title"] = "Vehicles";
+}
+
+<h1 class="text-center fw-bolder text-decoration-underline" >Vehicles</h1>
+
+<form asp-controller="Vehicles" asp-action="Index" method="get">
+    <div class="row justify-content-end mt-4">
+        <div class="col-md-4 flex-column">
+            <input type="text" name="license" placeholder="License data" class="form-text border-4"/>
+            <button type="submit" class="btn btn-info">Search Vehicle</button>
+        </div>
+    </div>
+</form>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary mt-4">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Brand)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Color)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Year)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Owner.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Owner.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Owner.DriverLicense)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Brand)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vin)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Color)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Year)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Owner.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Owner.LastName)
+            </td>
+                <td>
+                @Html.DisplayFor(modelItem => item.Owner.DriverLicense)
+            </td>
+            <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-success">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

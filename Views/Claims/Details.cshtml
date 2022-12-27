@@ -1,0 +1,54 @@
+﻿@model NetAssessment.Models.Claim
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1 class="text-center fw-bolder text-decoration-underline">Details</h1>
+
+<div>
+    <h4>Claim</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+        <dt class = "col-sm-2 flex-column">
+            @Html.DisplayNameFor(model => model.Vehicle)
+        </dt>
+        <dd class = "col-sm-10 flex-column">
+            @Html.DisplayFor(model => model.Vehicle.Id)
+        </dd>
+        <dt class = "col-sm-2 flex-column">
+                @Html.DisplayNameFor(model => model.Vehicle.Brand)
+        </dt>
+        <dd class = "col-sm-10 flex-column">
+                @Html.DisplayFor(model => model.Vehicle.Brand)
+        </dd>
+        <dt class = "col-sm-2 flex-column">
+                @Html.DisplayNameFor(model => model.Vehicle.Color)
+        </dt>
+        <dd class = "col-sm-10 flex-column">
+                @Html.DisplayFor(model => model.Vehicle.Color)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-success">Edit</a> |
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+</div>
